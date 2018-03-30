@@ -1,0 +1,30 @@
+<h1>HERE ARE YOUR SEARCH RESULTS</h1>
+
+
+ <% if(results.length==0) { %>
+        <h2>No Results Found</h2>
+    <% } %>
+        
+<ul>
+<% for(var i=0;i<results.length;i++) { %>
+    <% if(results.length>=20) { %>
+    <li><%= results[i].title %> </li>
+    <% } %>
+    <%  if(results.length<20 && results.length>=7) { %>
+        <li><%=results[i].title %></li>
+        <ul>
+            <li><strong>vote average:- </strong><%= results[i].vote_average %></li>
+            <li><strong>release date:- </strong><%= results[i].release_date%></li>
+        </ul>
+        <% } %>
+      <% if(results.length<7 && results.length>=1) { %>
+              <li><%=results[i].title %></li>
+              <ul>
+                 <li><strong>vote average:- </strong><%= results[i].vote_average %></li>
+                 <li><strong>release date:- </strong><%= results[i].release_date%></li>
+                 <li><strong>overview:- </strong><%= results[i].overview %></li>
+              </ul>
+          <% } %>
+       
+<% }  %>  
+</ul>
